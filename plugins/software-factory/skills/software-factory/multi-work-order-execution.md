@@ -22,7 +22,7 @@ For a single work order, follow [start-work-order.md](start-work-order.md), [rev
 3. Create a visible progress list with one item per work order.
 4. Execute one work order at a time unless the user explicitly asks for parallel execution and the tasks are independent.
 5. For each work order:
-   - Initialize or resume its execution directory.
+   - Initialize or resume its `.sw-factory/WO-XXX/` execution tracking directory.
    - Follow the single-work-order workflow end to end.
    - Stop if a blocking failure prevents completion.
    - Record outcome, evidence, and next status.

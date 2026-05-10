@@ -4,9 +4,9 @@ set -euo pipefail
 print_usage() {
   echo "Usage:"
   echo "  bash path/to/software-factory/scripts/init-wo-execution.sh \\"
-  echo "    --work-order-number <number-or-id> --work-order-title \"<title>\" --work-order-id <stable-id>"
+  echo "    --work-order-number WO-XXX --work-order-title \"<title>\" --work-order-id <stable-id>"
   echo
-  echo "Creates: scratch/software-factory/work-orders/<number-or-id>/"
+  echo "Creates: .sw-factory/WO-XXX/"
   echo "  - checklist.md"
   echo "  - context.md"
   echo "  - implementation-plan.md"
@@ -23,7 +23,7 @@ escape_sed_replacement() {
 WORK_ORDER_NUMBER=""
 WORK_ORDER_TITLE=""
 WORK_ORDER_ID=""
-OUTPUT_ROOT="scratch/software-factory/work-orders"
+OUTPUT_ROOT=".sw-factory"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in

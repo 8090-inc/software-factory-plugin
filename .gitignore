@@ -152,6 +152,7 @@ plugins/*/hooks/*.json
 
 # Scratch & manual-test artifacts
 scratch/
+.sw-factory/
 .DS_Store
 
 # Claude Code local configuration (auto-added)

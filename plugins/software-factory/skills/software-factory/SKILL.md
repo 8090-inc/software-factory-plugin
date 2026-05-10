@@ -37,7 +37,7 @@ Read [sofa-bws.md](sofa-bws.md) when writing or reviewing blueprints. When a blu
 Use this workflow for any scoped engineering task that should be repeatable and auditable, whether the task came from Software Factory, an issue tracker, a ticket, or a direct user request.
 
 1. Read the work order or task request and identify upstream requirements, blueprints, designs, artifacts, and relevant code.
-2. Initialize or resume an execution directory with [scripts/init-wo-execution.sh](scripts/init-wo-execution.sh).
+2. Initialize or resume an execution tracking directory at `.sw-factory/WO-XXX/` with [scripts/init-wo-execution.sh](scripts/init-wo-execution.sh).
 3. Fill out `context.md` with the task, links, branch, and upstream document references.
 4. Maintain `checklist.md` throughout the work. Check items immediately after completing them, mark non-applicable items as `[SKIP]` with a reason, and add project-specific checks as the repository's harness matures.
 5. Write `implementation-plan.md` before editing product code. See [writing-implementation-plans.md](writing-implementation-plans.md).
@@ -62,7 +62,7 @@ When the user gives more than one work order, follow [multi-work-order-execution
 | [review-phase.md](review-phase.md) | Generic review workflow for code, tests, architecture, and user-facing behavior |
 | [complete-work-order.md](complete-work-order.md) | Completion and handoff workflow |
 | [multi-work-order-execution.md](multi-work-order-execution.md) | Sequential orchestration for multiple work orders |
-| [scripts/init-wo-execution.sh](scripts/init-wo-execution.sh) | Initializes a generic execution directory |
+| [scripts/init-wo-execution.sh](scripts/init-wo-execution.sh) | Initializes a `.sw-factory/WO-XXX/` execution tracking directory |
 | [scripts/checklist-template.md](scripts/checklist-template.md) | Living execution checklist template |
 | [scripts/context-template.md](scripts/context-template.md) | Task context template |
 | [scripts/implementation-plan-template.md](scripts/implementation-plan-template.md) | Implementation plan template |

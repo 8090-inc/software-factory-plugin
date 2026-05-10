@@ -6,19 +6,21 @@ Gather enough product, architecture, and repository context to implement correct
 
 ## Workflow
 
-### 1. Resume or initialize the execution directory
+### 1. Resume or initialize the execution tracking directory
 
-Check whether an execution directory already exists for the work order or task.
+Check whether `.sw-factory/WO-XXX/` already exists for the work order or task, where `WO-XXX` is the work order number or another stable task identifier.
 
 - If it exists: resume from the current checklist state.
 - If it does not exist: initialize it with the script.
 
 ```bash
 bash path/to/software-factory/scripts/init-wo-execution.sh \
-  --work-order-number "<number-or-id>" \
+  --work-order-number "WO-XXX" \
   --work-order-title "<title>" \
   --work-order-id "<stable-id>"
 ```
+
+Resolve `path/to/software-factory` relative to this skill directory. If the shell is already in the skill directory, use `bash scripts/init-wo-execution.sh ...`.
 
 The script creates:
 
@@ -27,7 +29,7 @@ The script creates:
 - `implementation-plan.md`: implementation plan workspace.
 - `review-log.md`: review and verification evidence log.
 
-Do not re-run initialization for an existing directory unless the user explicitly approves replacing execution files.
+Do not re-run initialization for an existing `.sw-factory/WO-XXX/` directory unless the user explicitly approves replacing execution files.
 
 ### 2. Follow the checklist protocol
 

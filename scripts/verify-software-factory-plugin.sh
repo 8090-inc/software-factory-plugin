@@ -51,12 +51,12 @@ if [[ -e "$PLUGIN_DIR/hooks/claude.yaml" || -e "$PLUGIN_DIR/hooks/claude.json" ]
 fi
 
 FORBIDDEN_PATTERN="verification-receipt|completion-gate|validate-work-order|edit_work_orders|read_work_order|read_requirement|read_blueprint|search_requirements|search_blueprints|\\.cursor|Foundry|Feature Node|code-simplifier|Task tool|Figma|e2e-playwright|WO-<|WO-__|✅|❌"
-if rg -n "$FORBIDDEN_PATTERN" "$PLUGIN_DIR" "$GEMINI_DIST" "$KIRO_DIST"; then
+if grep -R -n -E "$FORBIDDEN_PATTERN" "$PLUGIN_DIR" "$GEMINI_DIST" "$KIRO_DIST"; then
   fail "Software Factory plugin contains private or non-portable workflow references."
 fi
 
 for marketplace in .claude-plugin/marketplace.json .cursor-plugin/marketplace.json .agents/plugins/marketplace.json; do
-  if ! rg -q '"name": "software-factory"' "$marketplace"; then
+  if ! grep -q '"name": "software-factory"' "$marketplace"; then
     fail "Marketplace does not list software-factory: $marketplace"
   fi
 done

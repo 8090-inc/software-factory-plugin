@@ -1,0 +1,23 @@
+{
+  "name": "skill-evaluator",
+  "version": "0.0.1",
+  "description": "Evaluate AI skills across model tiers with blind testing and refinement recommendations",
+  "author": {
+    "name": "AI Plugin Marketplace Template"
+  },
+  "keywords": ["evaluation", "testing", "skills", "model-tiers"],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Skill Evaluator",
+    "shortDescription": "Blind-test AI skills across opus/sonnet/haiku tiers and produce a refinement report.",
+    "longDescription": "Skill Evaluator orchestrates blind evaluations of an AI skill across multiple model tiers. It runs each test case through the skill at opus, sonnet, and haiku, compares outputs against expected outcomes, and emits a structured refinement report calling out the lowest-capability tier that passes (the 'clarity floor') along with targeted improvement recommendations.",
+    "category": "developer-tools",
+    "capabilities": [
+      "Blind evaluation of SKILL.md files across model tiers",
+      "Automatic pass/fail scoring against expected outcomes",
+      "Refinement report with root-cause analysis and recommendations"
+    ],
+    "defaultPrompt": "Evaluate the skill in ./skills/evaluate-skill against the test cases in ./test-cases."
+  }
+}

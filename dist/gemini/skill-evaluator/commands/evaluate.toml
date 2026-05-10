@@ -1,0 +1,10 @@
+description = "Evaluate a skill across model tiers using blind testing"
+prompt = """
+Evaluate the skill at the path provided as the first argument, using test cases from the path provided as the second argument.
+
+Arguments: {{args}}
+
+Run the skill with blind test agents at opus, sonnet, and haiku tiers.
+Compare outputs against expected outcomes.
+Generate a refinement report with specific recommendations.
+"""

@@ -1,0 +1,7 @@
+export default {
+  plugins: [
+    "remark-frontmatter",
+    "remark-preset-lint-consistent",
+    "remark-preset-lint-recommended",
+  ],
+};

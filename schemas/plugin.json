@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/ai-plugin-marketplace-template/main/schemas/plugin.json",
+  "title": "AI Plugin Manifest",
+  "description": "Plugin manifest for Claude Code (.claude-plugin/plugin.json) or Cursor (.cursor-plugin/plugin.json). Uses strict validation — no extra fields beyond those defined here.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "maxLength": 64,
+      "description": "Plugin name (lowercase, hyphens, no spaces)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+",
+      "description": "Semantic version (optional)"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "description": "What this plugin does (optional)"
+    },
+    "author": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false,
+      "description": "Plugin author information"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Plugin homepage URL"
+    },
+    "repository": {
+      "type": "string",
+      "description": "Source repository URL or shorthand"
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier"
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Discovery keywords"
+    },
+    "hooks": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\./.*\\.json$",
+          "description": "Relative path to a hooks JSON file (must start with ./ and end with .json)"
+        },
+        {
+          "type": "object",
+          "description": "Inline hooks configuration object"
+        }
+      ],
+      "description": "Hooks configuration — either a path string to a .json file or an inline hooks object"
+    },
+    "commands": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\./",
+          "description": "Relative path to a commands .md file or directory (must start with ./)"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\./",
+            "description": "Relative path to a commands .md file or directory"
+          },
+          "description": "Array of relative paths to command files or directories"
+        },
+        {
+          "type": "object",
+          "description": "Record of command name to command object"
+        }
+      ],
+      "description": "Commands — path string, array of paths, or record of command objects"
+    },
+    "agents": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\./.+\\.md$",
+          "description": "Relative path to an agent .md file (must start with ./ and end with .md)"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\./.+\\.md$",
+            "description": "Relative path to an agent .md file"
+          },
+          "description": "Array of relative paths to agent .md files"
+        }
+      ],
+      "description": "Agent definitions — path string or array of paths to .md files"
+    },
+    "skills": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\./",
+          "description": "Relative path to a skill directory (must start with ./)"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\./",
+            "description": "Relative path to a skill directory"
+          },
+          "description": "Array of relative paths to skill directories"
+        }
+      ],
+      "description": "Skill definitions — directory path or array of directory paths (not SKILL.md file paths)"
+    },
+    "outputStyles": {
+      "type": "object",
+      "description": "Output style configuration"
+    },
+    "mcpServers": {
+      "type": "object",
+      "description": "MCP server configuration"
+    },
+    "lspServers": {
+      "type": "object",
+      "description": "LSP server configuration"
+    },
+    "settings": {
+      "type": "object",
+      "description": "Plugin settings configuration"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,10 @@
+hooks:
+  PostToolUse:
+    - matcher: Write
+      description: Log evaluation report writes to a structured log file
+      hooks:
+        - type: command
+          command: >-
+            if echo "$TOOL_INPUT" | grep -q 'evaluation-report';
+            then echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Evaluation report written"
+            >> .evaluation-log.jsonl; fi

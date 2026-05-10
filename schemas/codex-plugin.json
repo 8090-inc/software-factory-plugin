@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/ai-plugin-marketplace-template/main/schemas/codex-plugin.json",
+  "title": "OpenAI Codex Plugin Manifest",
+  "description": "Plugin manifest for OpenAI Codex (.codex-plugin/plugin.json). Mirrors developers.openai.com/codex/plugins/build. Uses strict validation — no extra fields beyond those defined here.",
+  "type": "object",
+  "required": ["name", "version", "description", "interface"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "maxLength": 64,
+      "description": "Plugin name (lowercase, hyphens, no spaces) — must match directory name and marketplace entry"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+",
+      "description": "Semantic version"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "description": "Short description of what the plugin does"
+    },
+    "author": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false,
+      "description": "Plugin author information"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Plugin homepage URL"
+    },
+    "repository": {
+      "type": "string",
+      "description": "Source repository URL or shorthand"
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier"
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Discovery keywords"
+    },
+    "skills": {
+      "type": "string",
+      "pattern": "^\\./",
+      "description": "Relative path to skills directory (e.g. ./skills). Codex auto-discovers SKILL.md files within."
+    },
+    "mcpServers": {
+      "type": "string",
+      "pattern": "^\\./.*\\.json$",
+      "description": "Relative path to an MCP config JSON file (e.g. ./.mcp.json)"
+    },
+    "apps": {
+      "type": "string",
+      "pattern": "^\\./.*\\.json$",
+      "description": "Relative path to an apps config JSON file (e.g. ./.app.json)"
+    },
+    "interface": {
+      "type": "object",
+      "required": ["displayName", "shortDescription"],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable name shown in Codex UI"
+        },
+        "shortDescription": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One-line description for plugin listings"
+        },
+        "longDescription": {
+          "type": "string",
+          "description": "Multi-line description shown on the plugin detail page"
+        },
+        "category": {
+          "type": "string",
+          "description": "Plugin category (e.g. 'developer-tools', 'productivity')"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Human-readable list of plugin capabilities"
+        },
+        "brandColor": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Brand color as a 6-digit hex code (e.g. #1a73e8)"
+        },
+        "composerIcon": {
+          "type": "string",
+          "description": "Path (relative to plugin root) or URL to the composer icon"
+        },
+        "logo": {
+          "type": "string",
+          "description": "Path (relative to plugin root) or URL to the plugin logo"
+        },
+        "screenshots": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of paths or URLs to screenshot images"
+        },
+        "defaultPrompt": {
+          "type": "string",
+          "description": "Default user-facing prompt suggestion"
+        },
+        "websiteURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Plugin website URL"
+        },
+        "privacyPolicyURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Privacy policy URL"
+        },
+        "termsOfServiceURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Terms of service URL"
+        }
+      },
+      "additionalProperties": false,
+      "description": "User-facing interface metadata rendered by Codex"
+    }
+  },
+  "additionalProperties": false
+}

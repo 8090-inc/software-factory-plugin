@@ -1,0 +1,13 @@
+{
+  "name": "skill-evaluator",
+  "version": "0.0.1",
+  "description": "Evaluate AI skills across model tiers with blind testing and refinement recommendations",
+  "author": {
+    "name": "AI Plugin Marketplace Template"
+  },
+  "keywords": ["evaluation", "testing", "skills", "model-tiers"],
+  "skills": ["./skills/evaluate-skill"],
+  "agents": ["./agents/experimenter.md", "./agents/test-subject.md"],
+  "commands": ["./commands/evaluate.md"],
+  "hooks": "./hooks/claude.json"
+}

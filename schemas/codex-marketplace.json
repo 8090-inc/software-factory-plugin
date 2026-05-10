@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/ai-plugin-marketplace-template/main/schemas/codex-marketplace.json",
+  "title": "OpenAI Codex Plugin Marketplace",
+  "description": "Codex plugin marketplace registry (repo-root .agents/plugins/marketplace.json). Lists plugins for discovery by `codex /plugins` via a local source.",
+  "type": "object",
+  "required": ["plugins"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Marketplace name (lowercase, hyphens, no spaces)"
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false,
+      "description": "Marketplace owner information"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "pluginRoot": { "type": "string" },
+        "version": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "description": "Optional metadata about the marketplace"
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "source"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Plugin name (must match .codex-plugin/plugin.json name)"
+          },
+          "source": {
+            "type": "object",
+            "required": ["source", "path"],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": ["local"],
+                "description": "Source kind — only 'local' is supported for repo-root marketplaces"
+              },
+              "path": {
+                "type": "string",
+                "pattern": "^\\./",
+                "description": "Relative path to the plugin directory (must start with ./)"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Plugin source descriptor — { source: \"local\", path: \"./plugins/<name>\" }"
+          },
+          "description": {
+            "type": "string",
+            "description": "Plugin description"
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Discovery tags"
+          },
+          "policy": {
+            "type": "object",
+            "properties": {
+              "installation": {
+                "type": "string",
+                "enum": ["AVAILABLE", "BLOCKED"],
+                "description": "Whether the plugin may be installed"
+              },
+              "authentication": {
+                "type": "string",
+                "enum": ["ON_INSTALL", "NEVER", "ALWAYS"],
+                "description": "When authentication is requested"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Installation and authentication policy"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "List of plugins in this Codex marketplace"
+    }
+  },
+  "additionalProperties": false
+}

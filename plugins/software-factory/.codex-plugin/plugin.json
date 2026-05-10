@@ -1,0 +1,27 @@
+{
+  "name": "software-factory",
+  "version": "0.0.1",
+  "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository.",
+  "author": {
+    "name": "8090",
+    "url": "https://www.8090.ai"
+  },
+  "homepage": "https://www.8090.ai",
+  "keywords": ["software-factory", "requirements", "blueprints", "work-orders", "agentic-engineering"],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Software Factory",
+    "shortDescription": "Trace requirements and blueprints into repeatable coding-agent work orders.",
+    "longDescription": "Software Factory provides a portable skill for requirements writing, blueprint writing, work order execution, implementation planning, review, and verification. It includes token-efficient SOFA-RWS and SOFA-BWS references plus generic checklist, context, implementation-plan, review-log, and init-script templates that teams can adapt to any repository.",
+    "category": "developer-tools",
+    "capabilities": [
+      "Requirements and acceptance-criteria authoring guidance",
+      "Blueprint architecture and component-specification guidance",
+      "Repeatable work order execution with living harness checklists",
+      "Implementation plan and review-log templates for agentic coding"
+    ],
+    "brandColor": "#111827",
+    "defaultPrompt": "Use the Software Factory workflow to plan and execute the current work order. Initialize an execution directory, read linked requirements and blueprints, write an implementation plan, maintain the checklist, and record review evidence."
+  }
+}

@@ -12,7 +12,18 @@
       "name": "skill-evaluator",
       "source": "./plugins/skill-evaluator",
       "description": "Evaluate AI skills across model tiers with blind testing and refinement recommendations",
-      "tags": ["evaluation", "testing", "skills", "model-tiers"]
+      "tags": [
+        "evaluation",
+        "testing",
+        "skills",
+        "model-tiers"
+      ]
+    },
+    {
+      "name": "software-factory",
+      "source": "./plugins/software-factory",
+      "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository",
+      "tags": ["software-factory", "requirements", "blueprints", "work-orders", "agentic-engineering"]
     }
   ]
 }

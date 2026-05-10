@@ -1,0 +1,13 @@
+{
+  "name": "software-factory",
+  "version": "0.0.1",
+  "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository.",
+  "author": {
+    "name": "8090"
+  },
+  "keywords": ["software-factory", "requirements", "blueprints", "work-orders", "agentic-engineering"],
+  "skills": ["./skills"],
+  "agents": [],
+  "commands": [],
+  "mcpServers": "./.mcp.json"
+}

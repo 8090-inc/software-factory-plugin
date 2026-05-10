@@ -42,11 +42,18 @@ jobs:
         run: |
           mkdir -p release-artifacts
           tar -czf release-artifacts/software-factory-plugin-source.tar.gz -C plugins software-factory
-          tar -czf release-artifacts/software-factory-gemini-extension.tar.gz -C dist/gemini software-factory
-          tar -czf release-artifacts/software-factory-kiro-power.tar.gz -C dist/kiro software-factory
+          tar -czf release-artifacts/software-factory-gemini-extension.tar.gz -C dist/gemini/software-factory .
+          tar -czf release-artifacts/software-factory-kiro-power.tar.gz -C dist/kiro/software-factory .
           (cd plugins && zip -qr ../release-artifacts/software-factory-plugin-source.zip software-factory)
-          (cd dist/gemini && zip -qr ../../release-artifacts/software-factory-gemini-extension.zip software-factory)
-          (cd dist/kiro && zip -qr ../../release-artifacts/software-factory-kiro-power.zip software-factory)
+          (cd dist/gemini/software-factory && zip -qr ../../../release-artifacts/software-factory-gemini-extension.zip .)
+          (cd dist/kiro/software-factory && zip -qr ../../../release-artifacts/software-factory-kiro-power.zip .)
+
+      - name: Verify release archive roots
+        run: |
+          tar -tzf release-artifacts/software-factory-gemini-extension.tar.gz | grep -q '^\./gemini-extension\.json$'
+          tar -tzf release-artifacts/software-factory-kiro-power.tar.gz | grep -q '^\./POWER\.md$'
+          unzip -Z1 release-artifacts/software-factory-gemini-extension.zip | grep -q '^gemini-extension\.json$'
+          unzip -Z1 release-artifacts/software-factory-kiro-power.zip | grep -q '^POWER\.md$'
 
       - name: Upload workflow artifacts
         uses: actions/upload-artifact@v4

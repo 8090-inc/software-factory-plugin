@@ -12,6 +12,7 @@
     "clean": "rimraf dist dist-ts",
     "build:hooks": "tsx src/build-hooks.ts",
     "build": "pnpm run typecheck && pnpm run build:hooks && pnpm run validate && pnpm run build:standalone",
+    "verify:software-factory": "bash scripts/verify-software-factory-plugin.sh",
     "test:codex": "tsx scripts/codex-acceptance.ts preflight",
     "test:codex:verify": "tsx scripts/codex-acceptance.ts verify",
     "test:codex:cleanup": "tsx scripts/codex-acceptance.ts cleanup",

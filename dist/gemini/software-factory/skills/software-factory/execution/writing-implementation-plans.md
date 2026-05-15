@@ -26,5 +26,4 @@ Treat the Blueprint as the first-class architecture anchor. It defines required 
 
 - Prefer reuse over net-new code. If existing code almost fits, plan whether to reuse directly, extract shared code, or follow it as a pattern.
 - Prefer mature, extensible component and package structure over a direct but brittle implementation path.
-- Keep the plan synchronized with implementation. If the implementation path changes, update the plan before continuing.
 - Do not plan out-of-scope improvements. Capture them as follow-up notes only when they affect delivery risk.

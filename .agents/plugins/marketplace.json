@@ -9,30 +9,12 @@
   },
   "plugins": [
     {
-      "name": "skill-evaluator",
-      "source": {
-        "source": "local",
-        "path": "./plugins/skill-evaluator"
-      },
-      "description": "Evaluate AI skills across model tiers with blind testing and refinement recommendations",
-      "tags": [
-        "evaluation",
-        "testing",
-        "skills",
-        "model-tiers"
-      ],
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      }
-    },
-    {
       "name": "software-factory",
       "source": {
         "source": "local",
         "path": "./plugins/software-factory"
       },
-      "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository",
+      "description": "Run Software Factory-style requirements, blueprint, Work Order, planning, review, and verification workflows in any repository",
       "tags": [
         "software-factory",
         "requirements",

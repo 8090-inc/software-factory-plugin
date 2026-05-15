@@ -208,13 +208,14 @@ Codex plugins live alongside the other platforms' manifests:
 After installing a Codex user source pointing at this repo, `codex /plugins`
 will list the plugin with its interface metadata.
 
-## Example Plugin: skill-evaluator
+## Reference Plugin: skill-evaluator
 
-The included `skill-evaluator` plugin demonstrates the full multi-platform
-pattern end-to-end. It evaluates AI skills across model tiers (opus → sonnet →
-haiku) using blind sub-agent testing.
+The template's original `skill-evaluator` demo plugin is kept under
+`scratch/skill-evaluator` as a reference for the full multi-platform pattern.
+It is not listed in the root marketplace manifests and is not built into
+`dist/`, so it is not published with Software Factory.
 
-See [plugins/skill-evaluator/README.md](plugins/skill-evaluator/README.md) for
+See [scratch/skill-evaluator/README.md](scratch/skill-evaluator/README.md) for
 details.
 
 ## Creating a Plugin Manually
@@ -222,8 +223,8 @@ details.
 If you prefer to create a plugin without the scaffold script:
 
 1. Create a directory under `plugins/`.
-2. Add platform manifests (see the `skill-evaluator` plugin for the Tier 1
-   shape).
+2. Add platform manifests (see `scratch/skill-evaluator` for the full demo
+   shape, or `plugins/software-factory` for the active publishable plugin).
 3. Add your skills, agents, rules, commands, and hooks.
 4. Update all three root marketplace files:
    - `.claude-plugin/marketplace.json`

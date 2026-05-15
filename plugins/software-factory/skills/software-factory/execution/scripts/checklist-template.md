@@ -1,11 +1,11 @@
 <!--lint disable no-undefined-references strong-marker-->
 
-# Work Order Execution Checklist: __WORK_ORDER_NUMBER__
+# Work Order Execution Checklist: {{WORK_ORDER_NUMBER}}
 
-**Work Order Number or ID:** __WORK_ORDER_NUMBER__
-**Work Order Title:** __WORK_ORDER_TITLE__
-**Stable Work Order ID:** __WORK_ORDER_ID__
-**Initialized At (UTC):** __INITIALIZED_AT__
+**Work Order Number or ID:** {{WORK_ORDER_NUMBER}}
+**Work Order Title:** {{WORK_ORDER_TITLE}}
+**Stable Work Order ID:** {{WORK_ORDER_ID}}
+**Initialized At (UTC):** {{INITIALIZED_AT}}
 
 ## Phase 1: Start / Context Gathering
 

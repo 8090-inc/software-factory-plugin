@@ -1,9 +1,9 @@
 <!--lint disable no-undefined-references strong-marker-->
 
-# Implementation Plan: __WORK_ORDER_NUMBER__
+# Implementation Plan: {{WORK_ORDER_NUMBER}}
 
-**Work Order:** __WORK_ORDER_NUMBER__ - __WORK_ORDER_TITLE__
-**Created At (UTC):** __INITIALIZED_AT__
+**Work Order:** {{WORK_ORDER_NUMBER}} - {{WORK_ORDER_TITLE}}
+**Created At (UTC):** {{INITIALIZED_AT}}
 
 ## Summary
 

@@ -130,27 +130,33 @@ print_entities_or_placeholder() {
 }
 
 work_order_line() {
-  local title="${WORK_ORDER_TITLE:-__WORK_ORDER_TITLE__}"
-  local id="${WORK_ORDER_ID:-__WORK_ORDER_ID__}"
+  local title="$WORK_ORDER_TITLE"
+  local id="$WORK_ORDER_ID"
+  [[ -n "$title" ]] || title='{{WORK_ORDER_TITLE}}'
+  [[ -n "$id" ]] || id='{{WORK_ORDER_ID}}'
   printf -- '- %s: %s (`%s`)\n' "$WORK_ORDER_NUMBER" "$title" "$id"
 }
 
 render_context() {
+  local rendered_title="$WORK_ORDER_TITLE"
+  local rendered_id="$WORK_ORDER_ID"
+  [[ -n "$rendered_title" ]] || rendered_title='{{WORK_ORDER_TITLE}}'
+  [[ -n "$rendered_id" ]] || rendered_id='{{WORK_ORDER_ID}}'
   printf '# Work Order Context: %s\n\n' "$WORK_ORDER_NUMBER"
   printf '**Work Order Number or ID:** %s\n' "$WORK_ORDER_NUMBER"
-  printf '**Stable Work Order ID:** %s\n' "${WORK_ORDER_ID:-__WORK_ORDER_ID__}"
-  printf '**Work Order Title:** %s\n' "${WORK_ORDER_TITLE:-__WORK_ORDER_TITLE__}"
+  printf '**Stable Work Order ID:** %s\n' "$rendered_id"
+  printf '**Work Order Title:** %s\n' "$rendered_title"
   printf '**Initialized At (UTC):** %s\n' "$INITIALIZED_AT"
   printf '**Current Status:** %s\n\n' "$STATUS"
   printf '## Work Order\n\n'
   work_order_line
   printf '\n## Requirements\n\n'
-  print_entities_or_placeholder '- __REQUIREMENTS_DOCUMENT_TITLE__ (`__REQUIREMENTS_DOCUMENT_ID__`)' "${REQUIREMENTS[@]}"
+  print_entities_or_placeholder '- {{REQUIREMENTS_DOCUMENT_TITLE}} (`{{REQUIREMENTS_DOCUMENT_ID}}`)' "${REQUIREMENTS[@]}"
   printf '\n## Blueprints\n\n'
-  print_entities_or_placeholder '- __BLUEPRINT_DOCUMENT_TITLE__ (`__BLUEPRINT_DOCUMENT_ID__`)' "${BLUEPRINTS[@]}"
+  print_entities_or_placeholder '- {{BLUEPRINT_DOCUMENT_TITLE}} (`{{BLUEPRINT_DOCUMENT_ID}}`)' "${BLUEPRINTS[@]}"
   printf '\n## Referenced Blueprints\n\n'
   printf 'Blueprints reached through `@BlueprintName` references or other blueprint references while reading linked blueprints:\n\n'
-  print_entities_or_placeholder '- __REFERENCED_BLUEPRINT_DOCUMENT_TITLE__ (`__REFERENCED_BLUEPRINT_DOCUMENT_ID__`)' "${REFERENCED_BLUEPRINTS[@]}"
+  print_entities_or_placeholder '- {{REFERENCED_BLUEPRINT_DOCUMENT_TITLE}} (`{{REFERENCED_BLUEPRINT_DOCUMENT_ID}}`)' "${REFERENCED_BLUEPRINTS[@]}"
   printf '\n## Other Artifacts\n\n'
   printf -- '- Designs:\n'
   printf -- '- Issues or tickets:\n'
@@ -187,9 +193,9 @@ remove_placeholder_lines() {
   tmp="$(mktemp)"
 
   awk '
-    /__REQUIREMENTS_DOCUMENT_TITLE__/ { next }
-    /__BLUEPRINT_DOCUMENT_TITLE__/ { next }
-    /__REFERENCED_BLUEPRINT_DOCUMENT_TITLE__/ { next }
+    /{{REQUIREMENTS_DOCUMENT_TITLE}}/ { next }
+    /{{BLUEPRINT_DOCUMENT_TITLE}}/ { next }
+    /{{REFERENCED_BLUEPRINT_DOCUMENT_TITLE}}/ { next }
     { print }
   ' "$file" > "$tmp"
   mv "$tmp" "$file"

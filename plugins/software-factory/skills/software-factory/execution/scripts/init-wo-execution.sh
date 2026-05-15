@@ -91,10 +91,10 @@ ID_ESCAPED="$(escape_sed_replacement "$WORK_ORDER_ID")"
 
 apply_substitutions() {
   sed \
-    -e "s/__WORK_ORDER_NUMBER__/${NUMBER_ESCAPED}/g" \
-    -e "s/__WORK_ORDER_TITLE__/${TITLE_ESCAPED}/g" \
-    -e "s/__INITIALIZED_AT__/${TIMESTAMP_ESCAPED}/g" \
-    -e "s/__WORK_ORDER_ID__/${ID_ESCAPED}/g" \
+    -e "s/{{WORK_ORDER_NUMBER}}/${NUMBER_ESCAPED}/g" \
+    -e "s/{{WORK_ORDER_TITLE}}/${TITLE_ESCAPED}/g" \
+    -e "s/{{INITIALIZED_AT}}/${TIMESTAMP_ESCAPED}/g" \
+    -e "s/{{WORK_ORDER_ID}}/${ID_ESCAPED}/g" \
     "$1" > "$2"
 }
 

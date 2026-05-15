@@ -19,7 +19,8 @@
     "lint": "pnpm run lint:ts && pnpm run lint:md",
     "lint:ts": "eslint src/",
     "lint:md": "remark plugins/ --ext md,mdc --frail --quiet",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "husky"
   },
   "keywords": [
     "ai",
@@ -39,6 +40,7 @@
     "@types/node": "^25.3.3",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
     "prettier": "^3.8.1",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",

@@ -84,7 +84,16 @@ mkdir -p "$OUTPUT_DIR"
 
 INITIALIZED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
+work_order_label() {
+  local n="$WORK_ORDER_NUMBER"
+  if [[ "$n" != WO-* ]]; then
+    n="WO-$n"
+  fi
+  printf '%s' "$n"
+}
+
 NUMBER_ESCAPED="$(escape_sed_replacement "$WORK_ORDER_NUMBER")"
+LABEL_ESCAPED="$(escape_sed_replacement "$(work_order_label)")"
 TITLE_ESCAPED="$(escape_sed_replacement "$WORK_ORDER_TITLE")"
 TIMESTAMP_ESCAPED="$(escape_sed_replacement "$INITIALIZED_AT")"
 ID_ESCAPED="$(escape_sed_replacement "$WORK_ORDER_ID")"
@@ -92,6 +101,7 @@ ID_ESCAPED="$(escape_sed_replacement "$WORK_ORDER_ID")"
 apply_substitutions() {
   sed \
     -e "s/{{WORK_ORDER_NUMBER}}/${NUMBER_ESCAPED}/g" \
+    -e "s/{{WORK_ORDER_LABEL}}/${LABEL_ESCAPED}/g" \
     -e "s/{{WORK_ORDER_TITLE}}/${TITLE_ESCAPED}/g" \
     -e "s/{{INITIALIZED_AT}}/${TIMESTAMP_ESCAPED}/g" \
     -e "s/{{WORK_ORDER_ID}}/${ID_ESCAPED}/g" \

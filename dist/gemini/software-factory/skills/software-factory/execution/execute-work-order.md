@@ -106,7 +106,7 @@ After review approval, run or confirm all relevant verification:
 Before handoff, confirm:
 
 - `checklist.md` has all phase certifications checked, every item is `[x]` or `[SKIP]`, and every `[SKIP]` has a reason
-- `context.md` has the Work Order, connected requirements, connected blueprints, referenced blueprints, assumptions, and known delivery links filled in
+- `context.md` has the Work Order entity line, connected requirements, connected blueprints, referenced blueprints, current status, and known delivery links filled in
 - `implementation-plan.md` reflects the implementation that landed
 - `review-log.md` final verdict is `APPROVED`
 

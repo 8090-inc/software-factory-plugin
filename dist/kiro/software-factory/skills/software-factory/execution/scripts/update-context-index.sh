@@ -129,12 +129,20 @@ print_entities_or_placeholder() {
   done
 }
 
+work_order_label_for_number() {
+  local n="$1"
+  if [[ "$n" != WO-* ]]; then
+    n="WO-$n"
+  fi
+  printf '%s' "$n"
+}
+
 work_order_line() {
   local title="$WORK_ORDER_TITLE"
   local id="$WORK_ORDER_ID"
   [[ -n "$title" ]] || title='{{WORK_ORDER_TITLE}}'
   [[ -n "$id" ]] || id='{{WORK_ORDER_ID}}'
-  printf -- '- %s: %s (`%s`)\n' "$WORK_ORDER_NUMBER" "$title" "$id"
+  printf -- '- %s: %s (`%s`)\n' "$(work_order_label_for_number "$WORK_ORDER_NUMBER")" "$title" "$id"
 }
 
 render_context() {
@@ -142,35 +150,24 @@ render_context() {
   local rendered_id="$WORK_ORDER_ID"
   [[ -n "$rendered_title" ]] || rendered_title='{{WORK_ORDER_TITLE}}'
   [[ -n "$rendered_id" ]] || rendered_id='{{WORK_ORDER_ID}}'
-  printf '# Work Order Context: %s\n\n' "$WORK_ORDER_NUMBER"
-  printf '**Work Order Number or ID:** %s\n' "$WORK_ORDER_NUMBER"
-  printf '**Stable Work Order ID:** %s\n' "$rendered_id"
-  printf '**Work Order Title:** %s\n' "$rendered_title"
+  local label
+  label="$(work_order_label_for_number "$WORK_ORDER_NUMBER")"
+
+  printf '# Work Order Entity Index: %s\n\n' "$label"
   printf '**Initialized At (UTC):** %s\n' "$INITIALIZED_AT"
   printf '**Current Status:** %s\n\n' "$STATUS"
   printf '## Work Order\n\n'
-  work_order_line
+  printf -- '- %s: %s (`%s`)\n' "$label" "$rendered_title" "$rendered_id"
   printf '\n## Requirements\n\n'
   print_entities_or_placeholder '- {{REQUIREMENTS_DOCUMENT_TITLE}} (`{{REQUIREMENTS_DOCUMENT_ID}}`)' "${REQUIREMENTS[@]}"
   printf '\n## Blueprints\n\n'
   print_entities_or_placeholder '- {{BLUEPRINT_DOCUMENT_TITLE}} (`{{BLUEPRINT_DOCUMENT_ID}}`)' "${BLUEPRINTS[@]}"
   printf '\n## Referenced Blueprints\n\n'
-  printf 'Blueprints reached through `@BlueprintName` references or other blueprint references while reading linked blueprints:\n\n'
+  printf 'Blueprints reached through `@BlueprintName` references while reading linked blueprints.\n\n'
   print_entities_or_placeholder '- {{REFERENCED_BLUEPRINT_DOCUMENT_TITLE}} (`{{REFERENCED_BLUEPRINT_DOCUMENT_ID}}`)' "${REFERENCED_BLUEPRINTS[@]}"
-  printf '\n## Other Artifacts\n\n'
-  printf -- '- Designs:\n'
-  printf -- '- Issues or tickets:\n'
-  printf -- '- Logs or research:\n'
-  printf -- '- Related PRs:\n'
-  printf '\n## Repository Context\n\n'
-  printf -- '- Branch: %s\n' "$BRANCH"
-  printf -- '- Base branch:\n'
-  printf -- '- Package or module:\n'
-  printf -- '- Similar code paths:\n'
-  printf -- '- Harness commands:\n'
   printf '\n## Delivery\n\n'
+  printf -- '- Branch: %s\n' "$BRANCH"
   printf -- '- Pull Request URL: %s\n' "$PULL_REQUEST_URL"
-  printf -- '- Reviewer notes:\n'
 }
 
 replace_prefixed_line() {

@@ -30,7 +30,7 @@
 (see `execution/writing-implementation-plans.md`)
 
 - [ ] Implementation plan documented in `implementation-plan.md`
-- [ ] Verification plan documented in `implementation-plan.md`
+- [ ] Testing section documented in `implementation-plan.md`
 
 ### Implementation
 

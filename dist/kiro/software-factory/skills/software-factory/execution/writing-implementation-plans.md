@@ -4,7 +4,11 @@ Use this file to write `.sw-factory/WO-<number>/implementation-plan.md`.
 
 The implementation plan is the bridge from Software Factory context to code. It translates the Work Order, linked requirements, and linked Blueprints into concrete repository changes.
 
-Treat the Blueprint as the first-class architecture anchor. It defines required components and contracts; the implementation plan expands that model into package structure, supporting components, interfaces, control flow, and verification.
+Treat the Blueprint as the first-class architecture anchor. It defines required components and contracts; the implementation plan expands that model into package structure, supporting components, interfaces, control flow, and **how you will test the change**.
+
+## Filling in the file
+
+`implementation-plan.md` is created from `execution/scripts/implementation-plan-template.md`. That file uses **italic prompt lines** and **example step bullets** as scaffolding only. **You must replace all of that with substantive, work-order-specific content** for every section below. The finished plan must not still contain instructional placeholder text (for example `_1-3 sentences: …_`), generic `[title]` step stubs, or any other template hints meant for the author.
 
 ## Plan Structure
 
@@ -16,7 +20,7 @@ Treat the Blueprint as the first-class architecture anchor. It defines required 
 
 4. **Steps** - list concrete implementation steps that produce reviewable, preferably compilable intermediate states. Note dependencies or parallelizable steps when useful, especially when steps touch different files or layers.
 
-5. **Verification** - name the tests, checks, and review focus areas needed to prove the acceptance criteria and Blueprint alignment. Include specific test files or commands when known. Use repository-local review and testing guidance for detailed procedure.
+5. **Testing** - specify **automated and manual tests** you will rely on to validate this work: suites to run or extend (unit, integration, E2E, contract, etc.), new or changed test files and cases, important scenarios to cover, and the commands or workflows to execute them. Prefer concrete file paths and commands when you know them. **Do not** use this section to rehash whether the change satisfies requirements or blueprints; that traceability is handled in the review phase and checklist. Use repository-local testing guidance for flags, ordering, and environment setup.
 
 ## Rules
 

@@ -24,6 +24,6 @@ _Ordered implementation steps. Each step should produce a reviewable, preferably
 1. **[title]** - _what to do, where_
 2. **[title]** - _what to do, where_
 
-## Verification
+## Testing
 
-_Tests, commands/checks, and review focus areas needed to prove acceptance criteria and Blueprint alignment._
+_Automated and manual tests: suites, new/changed test files, scenarios, and commands. Not for requirements/blueprint conformance—that belongs in review._

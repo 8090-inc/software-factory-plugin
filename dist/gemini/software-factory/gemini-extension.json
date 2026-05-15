@@ -1,7 +1,7 @@
 {
   "name": "software-factory",
   "version": "0.0.1",
-  "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository.",
+  "description": "Run Software Factory-style requirements, blueprint, Work Order, planning, review, and verification workflows in any repository.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {}
 }

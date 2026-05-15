@@ -1,7 +1,7 @@
 {
   "name": "software-factory",
   "version": "0.0.1",
-  "description": "Run Software Factory-style requirements, blueprint, work order, planning, and verification workflows in any repository.",
+  "description": "Run Software Factory-style requirements, blueprint, Work Order, planning, review, and verification workflows in any repository.",
   "author": {
     "name": "8090",
     "url": "https://www.8090.ai"
@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Software Factory",
     "shortDescription": "Trace requirements and blueprints into repeatable coding-agent work orders.",
-    "longDescription": "Software Factory provides a portable skill for requirements writing, blueprint writing, work order execution, implementation planning, review, and verification. It includes token-efficient SOFA-RWS and SOFA-BWS references plus generic checklist, context, implementation-plan, review-log, and init-script templates that teams can adapt to any repository.",
+    "longDescription": "Software Factory provides a portable skill for requirements writing, blueprint writing, Work Order writing and execution, implementation planning, review, and verification. It uses a guides/execution layout and includes generic checklist, context, implementation-plan, review-log, initialization, and context-index templates that teams can adapt to any repository.",
     "category": "developer-tools",
     "capabilities": [
       "Requirements and acceptance-criteria authoring guidance",

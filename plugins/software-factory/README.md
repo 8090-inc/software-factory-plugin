@@ -1,13 +1,13 @@
 # Software Factory
 
-Software Factory is a portable coding-agent skill for turning requirements and blueprints into traceable work orders and repeatable implementation workflows.
+Software Factory is a portable coding-agent skill for turning requirements and blueprints into traceable Work Orders and repeatable implementation workflows.
 
 ## What It Includes
 
-- Token-efficient SOFA-RWS requirements guidance.
-- Token-efficient SOFA-BWS blueprint guidance.
-- Work order start, review, completion, and multi-work-order workflows.
-- Generic checklist, context, implementation-plan, review-log, and initialization templates.
+- Refactored skill layout with `guides/` and `execution/`.
+- Requirements, Blueprint, and Work Order writing guides based on public 8090 docs.
+- Single and multi-Work-Order execution through one execution process.
+- Generic checklist, context, implementation-plan, review-log, initialization, and context-index templates.
 - Empty MCP configuration files for teams that want to connect their own Software Factory or project tools.
 
 ## Public Docs
@@ -18,7 +18,7 @@ Software Factory is a portable coding-agent skill for turning requirements and b
 
 ## Usage
 
-Start with `skills/software-factory/SKILL.md`. The checklist template is intentionally a living harness-engineering artifact: adapt it to the build commands, test suites, generated artifacts, review rituals, and release gates that make agentic programming reliable in your repository.
+Start with `skills/software-factory/SKILL.md`. The execution process writes artifacts under `.sw-factory/` by default. The checklist template is intentionally a living harness-engineering artifact: adapt it to the build commands, test suites, generated artifacts, review rituals, and release gates that make agentic programming reliable in your repository.
 
 ## License
 

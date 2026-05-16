@@ -98,8 +98,11 @@ describe("init-wo-execution.sh", () => {
       path.join(woDir, "checklist.md"),
       "utf-8"
     );
+    expect(checklist).toContain("# Work Order Execution Checklist: WO-1740");
+    expect(checklist).toContain("**Work Order Number:** WO-1740");
     expect(checklist).toContain("**Work Order Title:** My WO");
     expect(checklist).not.toContain("{{WORK_ORDER_TITLE}}");
+    expect(checklist).not.toContain("{{WORK_ORDER_LABEL}}");
   });
 
   it("does not double-prefix WO- when work order number already includes WO-", () => {

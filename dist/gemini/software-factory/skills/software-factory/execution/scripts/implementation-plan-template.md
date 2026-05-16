@@ -1,8 +1,8 @@
 <!--lint disable no-undefined-references strong-marker-->
 
-# Implementation Plan: {{WORK_ORDER_NUMBER}}
+# Implementation Plan: {{WORK_ORDER_LABEL}}
 
-**Work Order:** {{WORK_ORDER_NUMBER}} - {{WORK_ORDER_TITLE}}
+**Work Order:** {{WORK_ORDER_LABEL}} — {{WORK_ORDER_TITLE}}
 **Created At (UTC):** {{INITIALIZED_AT}}
 
 ## Summary

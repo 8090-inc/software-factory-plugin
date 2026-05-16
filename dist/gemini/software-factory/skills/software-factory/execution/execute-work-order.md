@@ -29,7 +29,7 @@ Initialization creates:
 - `implementation-plan.md` - implementation plan
 - `review-log.md` - review log
 
-Do not re-run initialization for an existing Work Order directory unless the user explicitly approves replacing execution files.
+Do not re-run initialization for an existing Work Order directory unless the user explicitly approves replacing execution files, and commit `.sw-factory/` with the rest of the change when Git is your execution-artifact system of record.
 
 ### 2. Follow the checklist protocol
 

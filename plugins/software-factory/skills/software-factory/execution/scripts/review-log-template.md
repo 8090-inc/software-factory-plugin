@@ -1,8 +1,8 @@
 <!--lint disable strong-marker-->
 
-# Review Log: {{WORK_ORDER_NUMBER}}
+# Review Log: {{WORK_ORDER_LABEL}}
 
-**Work Order:** {{WORK_ORDER_NUMBER}} - {{WORK_ORDER_TITLE}}
+**Work Order:** {{WORK_ORDER_LABEL}} — {{WORK_ORDER_TITLE}}
 **Initialized At (UTC):** {{INITIALIZED_AT}}
 
 This file records review and verification rounds. Append new rounds; do not overwrite prior rounds.

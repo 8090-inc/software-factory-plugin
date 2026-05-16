@@ -14,8 +14,8 @@
 - [ ] Identify linked requirements and blueprints
 - [ ] Review every connected requirements document
 - [ ] Review every connected blueprint document
-- [ ] Follow all `@BlueprintName` mentions to read referenced Component Blueprints
-- [ ] Review every referenced blueprint document discovered through `@BlueprintName` mentions
+- [ ] Follow `@…` mentions **and links** to other blueprints in linked documents and read each referenced blueprint via MCP
+- [ ] Review every referenced blueprint discovered that way; add them to **Referenced Blueprints** in `context.md`
 - [ ] Extract acceptance criteria from requirements
 - [ ] Identify architecture path from blueprints (components, contracts, composition)
 - [ ] `context.md` is filled or updated with `execution/scripts/update-context-index.sh` for Work Order, connected requirements, connected blueprints, referenced blueprints, and known delivery links

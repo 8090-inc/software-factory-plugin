@@ -28,7 +28,7 @@ Blueprints describe the system from an internal perspective.
 - Component Blueprints document reusable system capabilities. Structured `component` blocks define runtime nodes; relationship paragraphs describe data, contracts, and control flow.
 - Feature Blueprints compose Component Blueprints and feature-specific components to satisfy a Feature Requirements Document.
 
-Read [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md) when writing or revising blueprints. During implementation, follow referenced Blueprints before coding so the full component graph is understood.
+Read [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md) when writing or revising blueprints. During implementation, follow referenced Blueprints—including `@…` mentions **and links** resolved via MCP—before coding so the full component graph is understood.
 
 ### Delivery
 
@@ -38,17 +38,17 @@ Read [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md) wh
 
 ## Routing
 
-| Task | Read |
-| --- | --- |
-| Executing one Work Order | [execution/execute-work-order.md](execution/execute-work-order.md) |
-| Executing multiple Work Orders | [execution/execute-work-order.md](execution/execute-work-order.md) |
+| Task                                            | Read                                                                                   |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Executing one Work Order                        | [execution/execute-work-order.md](execution/execute-work-order.md)                     |
+| Executing multiple Work Orders                  | [execution/execute-work-order.md](execution/execute-work-order.md)                     |
 | Writing an implementation plan during execution | [execution/writing-implementation-plans.md](execution/writing-implementation-plans.md) |
-| Running the review phase | [execution/review-phase.md](execution/review-phase.md) |
-| Initializing an execution directory | [execution/scripts/init-wo-execution.sh](execution/scripts/init-wo-execution.sh) |
-| Updating execution context | [execution/scripts/update-context-index.sh](execution/scripts/update-context-index.sh) |
-| Writing or revising requirements | [guides/requirements-writing-guide.md](guides/requirements-writing-guide.md) |
-| Writing or revising blueprints | [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md) |
-| Creating or updating Work Orders | [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md) |
+| Running the review phase                        | [execution/review-phase.md](execution/review-phase.md)                                 |
+| Initializing an execution directory             | [execution/scripts/init-wo-execution.sh](execution/scripts/init-wo-execution.sh)       |
+| Updating execution context                      | [execution/scripts/update-context-index.sh](execution/scripts/update-context-index.sh) |
+| Writing or revising requirements                | [guides/requirements-writing-guide.md](guides/requirements-writing-guide.md)           |
+| Writing or revising blueprints                  | [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md)                 |
+| Creating or updating Work Orders                | [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md)               |
 
 ## Work Order Execution
 

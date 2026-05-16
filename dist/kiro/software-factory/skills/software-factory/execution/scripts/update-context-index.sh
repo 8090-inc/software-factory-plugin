@@ -163,7 +163,7 @@ render_context() {
   printf '\n## Blueprints\n\n'
   print_entities_or_placeholder '- {{BLUEPRINT_DOCUMENT_TITLE}} (`{{BLUEPRINT_DOCUMENT_ID}}`)' "${BLUEPRINTS[@]}"
   printf '\n## Referenced Blueprints\n\n'
-  printf 'Blueprints reached through `@BlueprintName` references while reading linked blueprints.\n\n'
+  printf 'Blueprints reached through `@…` mentions and links while reading linked blueprints.\n\n'
   print_entities_or_placeholder '- {{REFERENCED_BLUEPRINT_DOCUMENT_TITLE}} (`{{REFERENCED_BLUEPRINT_DOCUMENT_ID}}`)' "${REFERENCED_BLUEPRINTS[@]}"
   printf '\n## Delivery\n\n'
   printf -- '- Branch: %s\n' "$BRANCH"

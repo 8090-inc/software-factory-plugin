@@ -52,10 +52,6 @@ Rules: include `name`, `store`, `description`, `fields`, and `constraints` when 
 - `` `ElementName` ``: schema, config, domain type, enum, request/response model, exception, feature flag, permission matrix, or `model` block.
 - `@SystemEntity`: Software Factory entity such as a Requirement, Blueprint, Work Order, or Artifact.
 
-Use component mentions for processors/orchestrators/renderers/fetchers. Use element mentions for shapes/contracts/config; element mentions do not create Blueprint-to-Blueprint dependency. Use `@...` for documents and records. Match element casing to the source language.
-
-During implementation or work order execution, follow `@BlueprintName` references and read referenced Blueprints before coding.
-
 ## Relationships
 
 Relationship paragraphs are graph edges between component nodes.

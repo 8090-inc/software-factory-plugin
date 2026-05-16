@@ -19,7 +19,7 @@
 
 ## Referenced Blueprints
 
-Blueprints reached through `@BlueprintName` references while reading linked blueprints.
+Blueprints reached through `@…` mentions and links while reading linked blueprints.
 
 - {{REFERENCED_BLUEPRINT_DOCUMENT_TITLE}} (`{{REFERENCED_BLUEPRINT_DOCUMENT_ID}}`)
 

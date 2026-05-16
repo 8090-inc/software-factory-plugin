@@ -33,7 +33,7 @@ Do not re-run initialization for an existing Work Order directory unless the use
 
 ### 2. Follow the checklist protocol
 
-**Checklist completion is mandatory. Every item must end in one of two states: checked complete with `[x]`, or marked `[SKIP]` with a skip reason. Unchecked items are execution failures, not TODOs to ignore.**
+**CHECKLIST COMPLETION IS MANDATORY. EVERY ITEM MUST END IN ONE OF TWO STATES: CHECKED COMPLETE WITH `[x]`, OR MARKED `[SKIP]` WITH A SKIP REASON. UNCHECKED ITEMS ARE EXECUTION FAILURES, NOT TODOs TO IGNORE.**
 
 Complete the checklist incrementally throughout execution. Check items off immediately after completing them and add notes in real time when evidence or skip reasons are needed. Do not defer checklist updates to the end. Each phase ends with a certification line that must be checked before proceeding to the next phase.
 
@@ -44,19 +44,19 @@ Skip protocol:
   Skip reason: Backend-only service refactor with no user-facing flow.
 ```
 
-### 3. Gather context
+### 3. Gather Software Factory context
 
-Use available Software Factory tools, issue trackers, repository docs, direct user input, and local files to gather Work Order context. Track completed context steps in `checklist.md`; do not duplicate checklist detail here.
+Use the Software Factory MCP to gather work order context. Track each completed context step in `checklist.md`; do not duplicate checklist detail here.
 
 1. Treat the Work Order description or task request as execution scope: in-scope deliverables, exclusions, linked records, and acceptance expectations.
 2. Read all linked requirements and extract the acceptance criteria that must pass.
 3. Read all linked blueprints and identify the architecture path: components, models, contracts, composition, and implementation boundaries.
-4. Follow all `@BlueprintName` mentions or other blueprint references. Feature Blueprints compose Component Blueprints, and both may be needed to understand the full graph and contracts.
+4. CRITICAL: Follow all blueprint references in the documents you read, including `@…` mentions and markdown links to other blueprints (resolve and read those through MCP too). It is absolutely necessary to understand linked blueprints.
 5. Explore analogous code in the repository before inventing new structure. Identify file structure, naming patterns, service patterns, error handling, dependency injection, reusable components, and conventions specific to the touched module.
 6. Use subagents or parallel exploration when the environment supports it and the work can be separated cleanly.
 7. Fill or update `context.md` using `execution/scripts/update-context-index.sh` when structured links are known. Rerun the script whenever new referenced blueprints or user-directed delivery links become known.
 
-Example:
+Example (you may pass `--requirement`, `--blueprint`, and `--referenced-blueprint` more than once):
 
 ```bash
 bash path/to/software-factory/execution/scripts/update-context-index.sh \
@@ -65,8 +65,11 @@ bash path/to/software-factory/execution/scripts/update-context-index.sh \
   --work-order-id "<stable-id>" \
   --status "in_progress" \
   --requirement "<requirement title>|<id-or-url>" \
+  --requirement "<another requirement>|<id-or-url>" \
   --blueprint "<blueprint title>|<id-or-url>" \
+  --blueprint "<another blueprint>|<id-or-url>" \
   --referenced-blueprint "<component blueprint title>|<id-or-url>" \
+  --referenced-blueprint "<another referenced blueprint>|<id-or-url>" \
   --branch "<branch-name-if-applicable>" \
   --pull-request-url "<url-if-applicable>"
 ```
@@ -85,10 +88,6 @@ Implement only the Work Order scope. The implementation must stay traceable to:
 - linked requirements and acceptance criteria
 - linked blueprint architecture, contracts, component composition, and implementation boundaries
 - local codebase conventions and reusable code discovered during context gathering
-
-Keep `implementation-plan.md` current as implementation changes.
-
-Use repository-local testing guidance for test execution order and command flags.
 
 ### 6. Review and verify
 
@@ -110,7 +109,7 @@ Before handoff, confirm:
 - `implementation-plan.md` reflects the implementation that landed
 - `review-log.md` final verdict is `APPROVED`
 
-If a Software Factory system or issue tracker is connected, update the Work Order status according to that project's workflow. Otherwise, prepare a concise human handoff with outcome, changed files, verification commands, skipped checks, risks, and follow-up work.
+Using the Software Factory MCP update the Work Order status to `in_review`.
 
 Follow the user's requested version-control handoff; do not assume commit, push, PR, or merge behavior.
 

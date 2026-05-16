@@ -1,0 +1,76 @@
+name: Release Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build and verify
+        run: pnpm run build
+
+      - name: Verify Software Factory publishability
+        run: pnpm run verify:software-factory
+
+      - name: Verify generated exports are committed
+        run: |
+          if [ -n "$(git status --porcelain -- dist/)" ]; then
+            echo "::error::dist/ is out of date. Run 'pnpm run build' and commit the changes."
+            git status -- dist/
+            exit 1
+          fi
+
+      - name: Package platform exports
+        run: |
+          mkdir -p release-artifacts
+          tar -czf release-artifacts/software-factory-plugin-source.tar.gz -C plugins software-factory
+          tar -czf release-artifacts/software-factory-gemini-extension.tar.gz -C dist/gemini/software-factory .
+          tar -czf release-artifacts/software-factory-kiro-power.tar.gz -C dist/kiro/software-factory .
+          (cd plugins && zip -qr ../release-artifacts/software-factory-plugin-source.zip software-factory)
+          (cd dist/gemini/software-factory && zip -qr ../../../release-artifacts/software-factory-gemini-extension.zip .)
+          (cd dist/kiro/software-factory && zip -qr ../../../release-artifacts/software-factory-kiro-power.zip .)
+
+      - name: Verify release archive roots
+        run: |
+          tar -tzf release-artifacts/software-factory-gemini-extension.tar.gz | grep -q '^\./gemini-extension\.json$'
+          tar -tzf release-artifacts/software-factory-kiro-power.tar.gz | grep -q '^\./POWER\.md$'
+          unzip -Z1 release-artifacts/software-factory-gemini-extension.zip | grep -q '^gemini-extension\.json$'
+          unzip -Z1 release-artifacts/software-factory-kiro-power.zip | grep -q '^POWER\.md$'
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-factory-release-packages
+          path: release-artifacts/*
+
+      - name: Publish GitHub release assets
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release-artifacts/* --clobber
+          else
+            gh release create "$tag" release-artifacts/* \
+              --title "Software Factory Plugin $tag" \
+              --notes "Release packages for Claude/Cursor/Codex source installs, Gemini CLI extensions, and Kiro powers."
+          fi

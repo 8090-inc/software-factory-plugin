@@ -44,7 +44,7 @@ const CONFIG_TOML = path.join(CODEX_HOME, "config.toml");
 
 /** Target plugin + marketplace under test. */
 const MARKETPLACE_NAME = "ai-plugin-marketplace";
-const PLUGIN_NAME = "skill-evaluator";
+const PLUGIN_NAME = "software-factory";
 const PLUGIN_DIR = path.join(ROOT, "plugins", PLUGIN_NAME);
 const MARKETPLACE_FILE = path.join(
   ROOT,

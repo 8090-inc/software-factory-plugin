@@ -1,7 +1,0 @@
-{
-  "name": "skill-evaluator",
-  "version": "0.0.1",
-  "description": "Evaluate AI skills across model tiers with blind testing and refinement recommendations",
-  "contextFileName": "GEMINI.md",
-  "mcpServers": {}
-}

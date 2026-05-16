@@ -3,6 +3,9 @@
 Author AI assistant plugins once and distribute them to all major platforms at the
 highest fidelity each one accepts.
 
+This repository is based on
+[mike-north/ai-plugin-marketplace-template](https://github.com/mike-north/ai-plugin-marketplace-template).
+
 ## Supported Platforms
 
 | Platform | Fidelity | Status |
@@ -37,6 +40,36 @@ pnpm run build:standalone
 This generates standalone directories in `dist/` for platforms that require
 repo-root manifests (Gemini CLI and Kiro). Claude Code, Cursor, and Codex read
 plugins directly from `plugins/<name>/` via their marketplace registries.
+
+## Publishing Strategy
+
+This repository is intended to remain the single source of truth. Do not use git
+submodules for generated platform packages unless a specific downstream registry
+requires a separate repository that cannot read from this one. Author plugins in
+`plugins/<name>/`, then generate platform-specific outputs with
+`pnpm run build:standalone`.
+
+The practical distribution paths are:
+
+- **Claude Code, Cursor, and Codex:** publish this repository as the marketplace
+  repository. These platforms can read plugin packages from `plugins/<name>/`
+  through their root marketplace manifests.
+- **Gemini CLI and Kiro:** use the generated exports in `dist/gemini/<name>/`
+  and `dist/kiro/<name>/`. These platforms expect root-level manifests for a
+  standalone extension or power, so CI packages those directories as release
+  artifacts. If a marketplace later requires a GitHub repository with the
+  manifest at the repository root, prefer publishing a release artifact or a
+  dedicated release branch over duplicating source by hand.
+- **Skills CLI / skills.sh:** point users at this repository and the specific
+  skill name. The CLI discovers `SKILL.md` files from the repo.
+
+Release package artifacts are produced by `.github/workflows/release.yml` on
+`v*` tags or manual workflow dispatch. The packages are:
+
+- `software-factory-plugin-source.*` — source plugin package for
+  Claude/Cursor/Codex-style installs.
+- `software-factory-gemini-extension.*` — standalone Gemini CLI extension.
+- `software-factory-kiro-power.*` — standalone Kiro power.
 
 ## Repository Structure
 
@@ -175,13 +208,14 @@ Codex plugins live alongside the other platforms' manifests:
 After installing a Codex user source pointing at this repo, `codex /plugins`
 will list the plugin with its interface metadata.
 
-## Example Plugin: skill-evaluator
+## Reference Plugin: skill-evaluator
 
-The included `skill-evaluator` plugin demonstrates the full multi-platform
-pattern end-to-end. It evaluates AI skills across model tiers (opus → sonnet →
-haiku) using blind sub-agent testing.
+The template's original `skill-evaluator` demo plugin is kept under
+`scratch/skill-evaluator` as a reference for the full multi-platform pattern.
+It is not listed in the root marketplace manifests and is not built into
+`dist/`, so it is not published with Software Factory.
 
-See [plugins/skill-evaluator/README.md](plugins/skill-evaluator/README.md) for
+See [scratch/skill-evaluator/README.md](scratch/skill-evaluator/README.md) for
 details.
 
 ## Creating a Plugin Manually
@@ -189,8 +223,8 @@ details.
 If you prefer to create a plugin without the scaffold script:
 
 1. Create a directory under `plugins/`.
-2. Add platform manifests (see the `skill-evaluator` plugin for the Tier 1
-   shape).
+2. Add platform manifests (see `scratch/skill-evaluator` for the full demo
+   shape, or `plugins/software-factory` for the active publishable plugin).
 3. Add your skills, agents, rules, commands, and hooks.
 4. Update all three root marketplace files:
    - `.claude-plugin/marketplace.json`

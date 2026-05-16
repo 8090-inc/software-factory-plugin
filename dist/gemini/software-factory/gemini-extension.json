@@ -1,0 +1,7 @@
+{
+  "name": "software-factory",
+  "version": "0.0.1",
+  "description": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {}
+}

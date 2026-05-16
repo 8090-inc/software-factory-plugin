@@ -1,0 +1,34 @@
+{
+  "name": "software-factory",
+  "version": "0.0.1",
+  "description": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.",
+  "author": {
+    "name": "8090",
+    "url": "https://www.8090.ai"
+  },
+  "homepage": "https://www.8090.ai",
+  "keywords": [
+    "software-factory",
+    "8090",
+    "requirements",
+    "blueprints",
+    "work-orders",
+    "agentic-engineering"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Software Factory",
+    "shortDescription": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution.",
+    "longDescription": "Skills for coding agents to use the 8090 Software Factory: guides for requirements and blueprints, work order authoring, and repeatable work order execution with checklists, context files, implementation plans, review, and verification—in any repository, with optional MCP for a hosted Software Factory.",
+    "category": "developer-tools",
+    "capabilities": [
+      "Requirements and acceptance-criteria authoring guidance",
+      "Blueprint architecture and component-specification guidance",
+      "Repeatable work order execution with living harness checklists",
+      "Implementation plan and review-log templates for agentic coding"
+    ],
+    "brandColor": "#111827",
+    "defaultPrompt": "Use the Software Factory workflow to plan and execute the current work order. Initialize an execution directory, read linked requirements and blueprints, write an implementation plan, maintain the checklist, and record review evidence."
+  }
+}

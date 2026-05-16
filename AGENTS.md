@@ -1,5 +1,9 @@
 # Repository guide for agents
 
+## Plugin registries (Cursor, Claude, Codex, Gemini, Kiro, Vercel)
+
+Keywords/tags are plain strings; hyphens are a naming convention, not special array syntax. For **official documentation links** by platform (marketplaces, manifests, extensions, powers, skills), see [docs/plugin-registry-documentation.md](docs/plugin-registry-documentation.md).
+
 ## Pre-commit checks
 
 This repo uses [Husky](https://typicode.github.io/husky/) so a **pre-commit** Git hook runs after a normal **`pnpm install`**.
@@ -15,9 +19,9 @@ CI (`.github/workflows/ci.yml`) also runs `pnpm run test` among other steps, so 
 
 ## Useful commands
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm run test` | Full Vitest suite (same as pre-commit) |
-| `pnpm run lint` | ESLint (`src/`) + Markdown lint (`plugins/`) |
-| `pnpm run verify:software-factory` | Software Factory plugin publishability |
-| `pnpm run build` | Typecheck, hooks, validate, standalone exports |
+| Command                            | Purpose                                        |
+| ---------------------------------- | ---------------------------------------------- |
+| `pnpm run test`                    | Full Vitest suite (same as pre-commit)         |
+| `pnpm run lint`                    | ESLint (`src/`) + Markdown lint (`plugins/`)   |
+| `pnpm run verify:software-factory` | Software Factory plugin publishability         |
+| `pnpm run build`                   | Typecheck, hooks, validate, standalone exports |

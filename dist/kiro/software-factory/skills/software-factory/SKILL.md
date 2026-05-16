@@ -1,6 +1,6 @@
 ---
 name: software-factory
-description: "Use Software Factory methods to connect requirements, blueprints, work orders, implementation plans, review, and verification in any repository. This skill is a directory: read it first, then follow the relevant guide or execution process."
+description: "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification. This skill is a directory: read it first, then follow the relevant guide or execution process."
 ---
 
 # Software Factory

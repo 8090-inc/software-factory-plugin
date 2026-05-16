@@ -1,6 +1,6 @@
 ---
 name: software-factory
-description: Run Software Factory-style requirements, blueprint, Work Order, planning, review, and verification workflows in any repository.
+description: Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.
 version: 0.0.1
 ---
 

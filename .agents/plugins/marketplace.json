@@ -1,11 +1,11 @@
 {
-  "name": "ai-plugin-marketplace",
+  "name": "8090",
   "owner": {
-    "name": "AI Plugin Marketplace Template"
+    "name": "8090"
   },
   "metadata": {
     "version": "0.0.1",
-    "description": "Universal AI Plugin Marketplace — author once, distribute to all platforms"
+    "description": "8090 plugin registry for Software Factory: skills, guides, and execution templates for requirements, blueprints, work orders, and agentic verification."
   },
   "plugins": [
     {
@@ -14,9 +14,11 @@
         "source": "local",
         "path": "./plugins/software-factory"
       },
-      "description": "Run Software Factory-style requirements, blueprint, Work Order, planning, review, and verification workflows in any repository",
+      "description": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.",
       "tags": [
         "software-factory",
+        "8090",
+        "80-90",
         "requirements",
         "blueprints",
         "work-orders",

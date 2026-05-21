@@ -34,8 +34,7 @@
       "required": ["name"],
       "properties": {
         "name": { "type": "string" },
-        "email": { "type": "string", "format": "email" },
-        "url": { "type": "string", "format": "uri" }
+        "email": { "type": "string", "format": "email" }
       },
       "additionalProperties": false,
       "description": "Plugin author information"
@@ -61,6 +60,15 @@
       "type": "array",
       "items": { "type": "string" },
       "description": "Discovery keywords"
+    },
+    "category": {
+      "type": "string",
+      "description": "Plugin category for marketplace classification"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tags for filtering and discovery"
     },
     "hooks": {
       "oneOf": [

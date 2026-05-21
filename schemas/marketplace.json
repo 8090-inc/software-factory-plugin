@@ -16,8 +16,7 @@
       "required": ["name"],
       "properties": {
         "name": { "type": "string" },
-        "email": { "type": "string", "format": "email" },
-        "url": { "type": "string", "format": "uri" }
+        "email": { "type": "string", "format": "email" }
       },
       "additionalProperties": false,
       "description": "Marketplace owner information"
@@ -63,11 +62,6 @@
           "category": {
             "type": "string",
             "description": "Plugin category"
-          },
-          "tags": {
-            "type": "array",
-            "items": { "type": "string" },
-            "description": "Discovery tags (use 'tags', not 'keywords')"
           },
           "strict": {
             "type": "boolean",

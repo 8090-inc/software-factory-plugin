@@ -2,6 +2,10 @@
 
 Software Factory is a portable coding-agent skill for turning requirements and blueprints into traceable Work Orders and repeatable implementation workflows.
 
+## Marketplace Description
+
+Software Factory helps coding agents turn requirements and architecture blueprints into traceable Work Orders and repeatable implementation workflows. It gives teams portable guides, execution checklists, implementation-plan templates, and review practices for planning, building, and verifying software changes across repositories.
+
 ## What It Includes
 
 - Refactored skill layout with `guides/` and `execution/`.
@@ -22,4 +26,4 @@ Start with `skills/software-factory/SKILL.md`. The execution process writes arti
 
 ## License
 
-ISC
+MIT

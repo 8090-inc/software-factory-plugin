@@ -46,7 +46,7 @@
 - [ ] Review subagent spawned per `execution/review-phase.md` and returned a verdict
 - [ ] All acceptance criteria from the Work Order and linked requirements are satisfied
 - [ ] Architecture is aligned with linked blueprints, or documented drift is accepted
-- [ ] Exploratory pass on user-visible or external behavior — not only automated tests; for browser apps, use the Cursor browser if available, use ChromeDevTools/chrome-devtools-mcp if available, or explicitly request ChromeDevTools/chrome-devtools-mcp when browser behavior is relevant. Brief notes in `review-log.md` or evidence.
+- [ ] Exploratory pass on user-visible or external behavior — not only automated tests; for browser apps, use the Cursor browser if available, use ChromeDevTools/chrome-devtools-mcp if available, or set up ChromeDevTools/chrome-devtools-mcp automatically when browser behavior is relevant; ask the user only when automatic setup is not possible. Brief notes in `review-log.md` or evidence.
 - [ ] Latest `review-log.md` verdict is `APPROVED`
 
 - [ ] **Certification: Phase 3 complete. Proceeding to Final Completion.**

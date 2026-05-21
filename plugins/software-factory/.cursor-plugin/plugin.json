@@ -28,6 +28,5 @@
     "work-orders",
     "agentic-engineering"
   ],
-  "skills": ["./skills"],
-  "mcpServers": "./mcp.json"
+  "skills": ["./skills"]
 }

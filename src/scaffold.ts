@@ -24,6 +24,7 @@ interface TemplateVars {
   name: string;
   description: string;
   title: string;
+  author: string;
   keywords: string;
 }
 
@@ -39,6 +40,7 @@ function applyTemplate(template: string, vars: TemplateVars): string {
     .replace(/\{\{name\}\}/g, vars.name)
     .replace(/\{\{description\}\}/g, vars.description)
     .replace(/\{\{title\}\}/g, vars.title)
+    .replace(/\{\{author\}\}/g, vars.author)
     .replace(/\{\{keywords\}\}/g, vars.keywords);
 }
 
@@ -180,6 +182,7 @@ function scaffoldPlugin(pluginName: string): void {
     name: pluginName,
     description: `A plugin for ${pluginName}`,
     title: toTitleCase(pluginName),
+    author: "Your Org",
     keywords: "",
   };
 

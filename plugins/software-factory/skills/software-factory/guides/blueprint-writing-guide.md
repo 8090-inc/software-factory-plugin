@@ -1,6 +1,6 @@
 # Blueprint Writing Guide
 
-Source: https://www.8090.ai/docs/opinions/blueprint-writing-guide
+Source: https://8090.ai/docs/opinions/blueprint-writing-guide
 
 Use when writing or revising Software Factory Blueprints. Requirements say what must be true; Blueprints say how the system is structured and behaves to make it true. Blueprints are written diagrams: structured blocks define nodes, and prose relationship paragraphs define edges. They should trace up to Requirements and down to code symbols, contracts, and runtime interactions.
 

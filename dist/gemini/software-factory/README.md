@@ -2,6 +2,10 @@
 
 Software Factory is a portable coding-agent skill for turning requirements and blueprints into traceable Work Orders and repeatable implementation workflows.
 
+## Marketplace Description
+
+Guides agents in using the 8090 Software Factory platform to work with requirements and blueprints while performing traceable Work Order execution.
+
 ## What It Includes
 
 - Refactored skill layout with `guides/` and `execution/`.
@@ -12,9 +16,9 @@ Software Factory is a portable coding-agent skill for turning requirements and b
 
 ## Public Docs
 
-- Requirements Writing Guide: https://www.8090.ai/docs/opinions/requirements-writing-guide
-- Blueprint Writing Guide: https://www.8090.ai/docs/opinions/blueprint-writing-guide
-- Work Orders: https://www.8090.ai/docs/modules/work-orders
+- Requirements Writing Guide: https://8090.ai/docs/opinions/requirements-writing-guide
+- Blueprint Writing Guide: https://8090.ai/docs/opinions/blueprint-writing-guide
+- Work Orders: https://8090.ai/docs/modules/work-orders
 
 ## Usage
 
@@ -22,4 +26,4 @@ Start with `skills/software-factory/SKILL.md`. The execution process writes arti
 
 ## License
 
-ISC
+MIT

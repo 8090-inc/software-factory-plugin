@@ -24,7 +24,7 @@ Align each finding with the sections in your `review-log.md` (and your team’s 
 - **Blueprint alignment** — components, contracts, data flow, and boundaries match linked blueprints.
 - **Architecture and conventions** — placement, naming, layering, dependencies, errors, logging, reuse.
 - **Tests and build health** — unit, integration, E2E, **lint**, **typecheck**, and build as relevant; document unrelated baseline failures rather than hiding them.
-- **User-facing verification** — when behavior is visible or externally observable (UI, exports, emails, CLI output, etc.): exploratory checks, screenshots, or other evidence as appropriate. For browser apps, use the Cursor browser if available, or Browser MCP / Chrome browser MCP if available; if no browser tool is available and browser behavior is relevant to the user's software, explicitly request Browser MCP / Chrome browser MCP before approving the review.
+- **User-facing verification** — when behavior is visible or externally observable (UI, exports, emails, CLI output, etc.): exploratory checks, screenshots, or other evidence as appropriate. For browser apps, use the Cursor browser if available, or ChromeDevTools/chrome-devtools-mcp if available; if no browser tool is available and browser behavior is relevant to the user's software, explicitly request ChromeDevTools/chrome-devtools-mcp before approving the review.
 - **Security, privacy, and data safety** — when relevant: auth, validation, secrets, PII, migrations, destructive operations.
 
 For **codebase-specific** dimensions — architecture and conventions, tests and tooling, security expectations, and similar — rely on **skills and other documentation already in this repository** to decide what “good” looks like and the best checks to run. Those sources override generic bullets here.
@@ -52,6 +52,6 @@ If a finding needs product or policy judgment, **stop looping** and surface the 
 
 - When delegation is available, the **review delegate owns** running and synthesizing dimensions; the implementation agent acts on the verdict rather than re‑reviewing.
 - Every round **appends** to `review-log.md`.
-- User‑facing verification may need browser, device, or screenshot tooling when the change produces observable output. For browser apps, prefer the Cursor browser when available, use Browser MCP / Chrome browser MCP when that is the available browser tool, and explicitly request Browser MCP / Chrome browser MCP when browser behavior is relevant but no browser tool is available. Only that dimension should **change product code** when fixes are layout or presentation — not business logic — unless the team’s review guide says otherwise.
+- User‑facing verification may need browser, device, or screenshot tooling when the change produces observable output. For browser apps, prefer the Cursor browser when available, use ChromeDevTools/chrome-devtools-mcp when that is the available browser tool, and explicitly request ChromeDevTools/chrome-devtools-mcp when browser behavior is relevant but no browser tool is available. Only that dimension should **change product code** when fixes are layout or presentation — not business logic — unless the team’s review guide says otherwise.
 - Unresolvable or out‑of‑scope findings go to the user instead of endless retry loops.
 - Resolve blocking findings before handoff or status moves.

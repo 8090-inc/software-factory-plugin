@@ -17,6 +17,12 @@
       "pattern": "^\\d+\\.\\d+\\.\\d+",
       "description": "Semantic version (optional)"
     },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "Human-readable plugin display name"
+    },
     "description": {
       "type": "string",
       "minLength": 1,
@@ -46,6 +52,10 @@
     "license": {
       "type": "string",
       "description": "SPDX license identifier"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Path (relative to plugin root) or URL to the plugin logo"
     },
     "keywords": {
       "type": "array",

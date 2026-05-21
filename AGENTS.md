@@ -17,6 +17,10 @@ Cloning fresh: run `pnpm install` once so the `prepare` script registers Husky h
 
 CI (`.github/workflows/ci.yml`) also runs `pnpm run test` among other steps, so pre-commit and CI stay aligned on the Vitest suite.
 
+## Pull requests
+
+Open pull requests from a topic branch with a focused title, a concise summary of user-facing or registry-facing changes, and the exact validation commands run. Keep unrelated refactors, formatting churn, and generated-output changes out of the PR unless they are required for the change. Before requesting review, run the narrowest relevant checks plus `pnpm run test` for behavior changes or `pnpm run validate`/`pnpm run verify:software-factory` for plugin registry changes, and mention any check that could not be run.
+
 ## Useful commands
 
 | Command                            | Purpose                                        |

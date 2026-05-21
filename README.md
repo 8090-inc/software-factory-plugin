@@ -246,4 +246,6 @@ If you prefer to create a plugin without the scaffold script:
 
 ## License
 
-MIT
+MIT. This repository is based on
+[mike-north/ai-plugin-marketplace-template](https://github.com/mike-north/ai-plugin-marketplace-template),
+which also declares the MIT license.

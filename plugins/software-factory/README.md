@@ -4,7 +4,7 @@ Software Factory is a portable coding-agent skill for turning requirements and b
 
 ## Marketplace Description
 
-Guides agents to use the 8090 Software Factory platform to write requirements and blueprints, then execute traceable Work Orders.
+Guides agents in using the 8090 Software Factory platform across requirements, blueprints, and traceable Work Order execution.
 
 ## What It Includes
 

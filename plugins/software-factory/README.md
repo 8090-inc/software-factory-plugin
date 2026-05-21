@@ -12,9 +12,9 @@ Software Factory is a portable coding-agent skill for turning requirements and b
 
 ## Public Docs
 
-- Requirements Writing Guide: https://www.8090.ai/docs/opinions/requirements-writing-guide
-- Blueprint Writing Guide: https://www.8090.ai/docs/opinions/blueprint-writing-guide
-- Work Orders: https://www.8090.ai/docs/modules/work-orders
+- Requirements Writing Guide: https://8090.ai/docs/opinions/requirements-writing-guide
+- Blueprint Writing Guide: https://8090.ai/docs/opinions/blueprint-writing-guide
+- Work Orders: https://8090.ai/docs/modules/work-orders
 
 ## Usage
 

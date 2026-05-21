@@ -5,9 +5,9 @@
   "description": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.",
   "author": {
     "name": "8090 Solutions Inc.",
-    "url": "https://www.8090.ai"
+    "url": "https://8090.ai"
   },
-  "homepage": "https://www.8090.ai",
+  "homepage": "https://8090.ai",
   "license": "MIT",
   "keywords": [
     "software-factory",

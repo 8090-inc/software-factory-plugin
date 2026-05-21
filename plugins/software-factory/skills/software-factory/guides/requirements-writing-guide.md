@@ -1,6 +1,6 @@
 # Requirements Writing Guide
 
-Source: https://www.8090.ai/docs/opinions/requirements-writing-guide
+Source: https://8090.ai/docs/opinions/requirements-writing-guide
 
 Use this guide when drafting or revising Product Overview Documents or Feature Requirements Documents (FRDs). Requirements capture product intent: what the product must do and why it matters.
 

@@ -1,6 +1,6 @@
 # Work Order Writing Guide
 
-Source: https://www.8090.ai/docs/opinions/work-order-writing-guide
+Source: https://8090.ai/docs/opinions/work-order-writing-guide
 
 Use this guide when creating or updating Work Orders. A Work Order is an implementation task that delivers requirements while following blueprint specifications. A good Work Order connects the correct context, states what needs to be done, defines what is out of scope, and explains how completion will be verified.
 

@@ -17,6 +17,12 @@
       "pattern": "^\\d+\\.\\d+\\.\\d+",
       "description": "Semantic version (optional)"
     },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "Human-readable plugin display name"
+    },
     "description": {
       "type": "string",
       "minLength": 1,
@@ -28,8 +34,7 @@
       "required": ["name"],
       "properties": {
         "name": { "type": "string" },
-        "email": { "type": "string", "format": "email" },
-        "url": { "type": "string", "format": "uri" }
+        "email": { "type": "string", "format": "email" }
       },
       "additionalProperties": false,
       "description": "Plugin author information"
@@ -47,10 +52,23 @@
       "type": "string",
       "description": "SPDX license identifier"
     },
+    "logo": {
+      "type": "string",
+      "description": "Path (relative to plugin root) or URL to the plugin logo"
+    },
     "keywords": {
       "type": "array",
       "items": { "type": "string" },
       "description": "Discovery keywords"
+    },
+    "category": {
+      "type": "string",
+      "description": "Plugin category for marketplace classification"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tags for filtering and discovery"
     },
     "hooks": {
       "oneOf": [

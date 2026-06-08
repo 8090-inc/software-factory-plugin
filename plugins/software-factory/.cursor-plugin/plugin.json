@@ -1,10 +1,16 @@
 {
   "name": "software-factory",
+  "displayName": "8090 Solutions Inc.",
   "version": "0.0.1",
   "description": "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification.",
   "author": {
-    "name": "8090"
+    "name": "8090 Solutions Inc.",
+    "email": "andrew@8090.ai"
   },
+  "homepage": "https://8090.ai",
+  "repository": "https://github.com/8090-inc/software-factory-plugin",
+  "license": "MIT",
+  "logo": "https://imagedelivery.net/bKVw8QM-grICqZZkoWASAQ/55cdfe67-f602-4e43-bf69-9450fdbc0c00/public",
   "keywords": [
     "software-factory",
     "8090",
@@ -13,8 +19,14 @@
     "work-orders",
     "agentic-engineering"
   ],
-  "skills": ["./skills"],
-  "agents": [],
-  "commands": [],
-  "mcpServers": "./.mcp.json"
+  "category": "developer-tools",
+  "tags": [
+    "software-factory",
+    "8090",
+    "requirements",
+    "blueprints",
+    "work-orders",
+    "agentic-engineering"
+  ],
+  "skills": ["./skills"]
 }

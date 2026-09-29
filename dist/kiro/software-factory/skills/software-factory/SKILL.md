@@ -11,13 +11,16 @@ This skill equips you to use the Software Factory MCP effectively and guides you
 
 ## Records
 
+- The **Knowledge Base** holds the project's documents and files, such as research, meeting notes, and design artifacts.
 - **Requirements** describe the system from an external perspective: what it must do for its users and why.
 - **Blueprints** describe the system from an internal perspective: its components, contracts, and architecture.
 - **Work Orders** describe delivery: the implementable scope of a change, its exclusions, and the requirements and blueprints it connects to.
+- **Feedback** is requests and reports submitted by the product's users.
+- **Themes** group feedback items that share a common root cause, so they can be triaged together and addressed in one Work Order.
 
 ## Record authoring
 
-Before you create or change a requirement, blueprint, or Work Order, read the project's current writing rules for that kind of record through the Software Factory MCP. Call `list_skills` to find the writing rules for requirements, blueprints, or Work Orders, then call `read_skill` on that skill and read any child skill it points you to. Write the record exactly as those rules describe. If the Software Factory MCP is unavailable, stop and tell the user.
+Before you create or change a Knowledge Base document, requirement, blueprint, Work Order, feedback item, or theme, read the project's current writing rules for that kind of record through the Software Factory MCP. Call `list_skills` to find the writing rules for that kind of record, then call `read_skill` on that skill and read any child skill it points you to. Write the record exactly as those rules describe. If the Software Factory MCP is unavailable, stop and tell the user.
 
 During implementation, read every referenced Blueprint through the Software Factory MCP before coding, including `@…` mentions **and links**.
 

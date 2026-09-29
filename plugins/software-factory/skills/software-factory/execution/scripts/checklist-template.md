@@ -6,7 +6,7 @@
 **Work Order Title:** {{WORK_ORDER_TITLE}}
 **Initialized At (UTC):** {{INITIALIZED_AT}}
 
-## Phase 1: Start / Context Gathering
+## Phase 1: Context Gathering
 
 ### Required Steps
 

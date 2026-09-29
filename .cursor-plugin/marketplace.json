@@ -5,7 +5,7 @@
     "email": "andrew@8090.ai"
   },
   "metadata": {
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "8090 plugin registry for Software Factory: skills, guides, and execution templates for requirements, blueprints, work orders, and agentic verification."
   },
   "plugins": [

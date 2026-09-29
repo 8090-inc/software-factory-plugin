@@ -1,28 +1,20 @@
 # Software Factory
 
-Software Factory is a portable coding-agent skill for turning requirements and blueprints into traceable Work Orders and repeatable implementation workflows.
+This plugin equips coding agents to use the Software Factory MCP effectively and guides them through reliable, traceable Work Order execution in your repository.
 
-## Marketplace Description
+## How It Works
 
-Guides agents in using the 8090 Software Factory platform to work with requirements and blueprints while performing traceable Work Order execution.
+The plugin directs agents to read your project's current writing rules through the Software Factory MCP before they create or change a requirement, blueprint, or Work Order.
 
-## What It Includes
+When executing one or more Work Orders, the plugin guides the agent to gather the linked requirements and blueprints, write an implementation plan, implement only the Work Order scope, run a review, and hand the Work Order off for review. The skill ships the templates this process fills in: a checklist, a context index, an implementation plan, and a review log. It also ships scripts that initialize an execution directory and keep its context index current.
 
-- Refactored skill layout with `guides/` and `execution/`.
-- Requirements, Blueprint, and Work Order writing guides based on public 8090 docs.
-- Single and multi-Work-Order execution through one execution process.
-- Generic checklist, context, implementation-plan, review-log, initialization, and context-index templates.
-- Empty MCP configuration files for teams that want to connect their own Software Factory or project tools.
-
-## Public Docs
-
-- Requirements Writing Guide: https://8090.ai/docs/opinions/requirements-writing-guide
-- Blueprint Writing Guide: https://8090.ai/docs/opinions/blueprint-writing-guide
-- Work Orders: https://8090.ai/docs/modules/work-orders
+The plugin assumes the Software Factory MCP is already installed and connected for your project. It also ships an empty MCP configuration where your team can register the Software Factory MCP, along with any other MCP servers your workflow depends on.
 
 ## Usage
 
-Start with `skills/software-factory/SKILL.md`. The execution process writes artifacts under `.sw-factory/` by default. The checklist template is intentionally a living harness-engineering artifact: adapt it to the build commands, test suites, generated artifacts, review rituals, and release gates that make agentic programming reliable in your repository.
+Agents start at `skills/software-factory/SKILL.md`, which routes each task to the right execution guide or MCP skill. By default, execution artifacts are written under `.sw-factory/`.
+
+The checklist template is meant to evolve. Adapt it to the build commands, test suites, generated artifacts, review rituals, and release gates that make agentic programming reliable in your repository.
 
 ## License
 

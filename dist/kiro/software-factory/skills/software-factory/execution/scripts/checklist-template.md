@@ -43,7 +43,7 @@
 
 ### Review
 
-- [ ] Review subagent spawned per `execution/review-phase.md` and returned a verdict
+- [ ] Review subagent spawned per `execution/review.md` and returned a verdict
 - [ ] All acceptance criteria from the Work Order and linked requirements are satisfied
 - [ ] Architecture is aligned with linked blueprints, or documented drift is accepted
 - [ ] Exploratory pass on user-visible or external behavior — not only automated tests; for browser apps, use browser-based testing if available. Brief notes in `review-log.md` or evidence.

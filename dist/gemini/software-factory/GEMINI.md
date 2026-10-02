@@ -2,4 +2,4 @@
 
 This extension provides the Software Factory skill for requirements, blueprints, Work Orders, implementation planning, review, and verification.
 
-Use `skills/software-factory/SKILL.md` as the entry point. The skill uses a `guides/` and `execution/` layout and includes generic execution templates that can be adapted to any repository.
+Use `skills/software-factory/SKILL.md` as the entry point. Read record-authoring rules from live Software Factory MCP skills. Repository execution uses the templates under `skills/software-factory/execution/`.

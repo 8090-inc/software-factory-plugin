@@ -91,7 +91,7 @@ Implement only the Work Order scope. The implementation must stay traceable to:
 
 ### 6. Review and verify
 
-After implementation is complete, follow [review-phase.md](review-phase.md). The review phase owns review orchestration and writes to `review-log.md`.
+After implementation is complete, follow [review.md](review.md). The review owns review orchestration and writes to `review-log.md`.
 
 After review approval, run or confirm all relevant verification:
 

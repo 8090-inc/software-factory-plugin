@@ -1,40 +1,28 @@
 ---
 name: software-factory
-description: "Skills for coding agents to use the 8090 Software Factory—requirements, blueprints, work orders, and structured work order execution, with implementation plans, review, and verification. This skill is a directory: read it first, then follow the relevant guide or execution process."
+description: "Guides coding agents in using the 8090 Software Factory MCP and executing Work Orders reliably and traceably in a repository—requirements, blueprints, work orders, implementation plans, review, and verification. Read this skill first, then follow the relevant execution process."
 ---
 
 # Software Factory
 
 Software Factory is an AI-native SDLC method for connecting product intent, technical intent, and implementation work in one traceable workflow.
 
-This portable skill is for writing Software Factory records and executing Work Orders headlessly in any repository. It does not assume access to a hosted Software Factory service, private repository automation, or repository-specific review skills. When project tools are available, use them; otherwise, use the files and templates in this skill as the execution system of record.
+This skill equips you to use the Software Factory MCP effectively and guides you through reliable, traceable Work Order execution in this repository.
 
 ## Records
 
-### Requirements
+- The **Knowledge Base** holds the project's documents and files, such as research, meeting notes, and design artifacts.
+- **Requirements** describe the system from an external perspective: what it must do for its users and why.
+- **Blueprints** describe the system from an internal perspective: its components, contracts, and architecture.
+- **Work Orders** describe delivery: the implementable scope of a change, its exclusions, and the requirements and blueprints it connects to.
+- **Feedback** is requests and reports submitted by the product's users.
+- **Themes** group feedback items that share a common root cause, so they can be triaged together and addressed in one Work Order.
 
-Requirements describe the system from an external perspective.
+## Record authoring
 
-- Product Overview Documents capture durable product-wide why and what: business problem, current state, product description, success metrics, technical requirements, and other framing.
-- Feature Requirements Documents capture localized feature intent with user stories and acceptance criteria. User stories state who needs what and why; acceptance criteria define testable behavior.
+Before you create or change a Knowledge Base document, requirement, blueprint, Work Order, feedback item, or theme, read the project's current writing rules for that kind of record through the Software Factory MCP. Call `list_skills` to find the writing rules for that kind of record, then call `read_skill` on that skill and read any child skill it points you to. Write the record exactly as those rules describe. If the Software Factory MCP is unavailable, stop and tell the user.
 
-Read [guides/requirements-writing-guide.md](guides/requirements-writing-guide.md) when writing or revising requirements.
-
-### Blueprints
-
-Blueprints describe the system from an internal perspective.
-
-- Container Blueprints document separately deployable or runnable units and their runtime boundaries.
-- Component Blueprints document reusable system capabilities. Structured `component` blocks define runtime nodes; relationship paragraphs describe data, contracts, and control flow.
-- Feature Blueprints compose Component Blueprints and feature-specific components to satisfy a Feature Requirements Document.
-
-Read [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md) when writing or revising blueprints. During implementation, follow referenced Blueprints—including `@…` mentions **and links** resolved via MCP—before coding so the full component graph is understood.
-
-### Delivery
-
-Work Orders describe delivery intent: implementable scope, exclusions, connected requirements, connected blueprints, and acceptance-test expectations.
-
-Read [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md) when creating or updating Work Orders.
+During implementation, read every referenced Blueprint through the Software Factory MCP before coding, including `@…` mentions **and links**.
 
 ## Routing
 
@@ -43,25 +31,17 @@ Read [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md) wh
 | Executing one Work Order                        | [execution/execute-work-order.md](execution/execute-work-order.md)                     |
 | Executing multiple Work Orders                  | [execution/execute-work-order.md](execution/execute-work-order.md)                     |
 | Writing an implementation plan during execution | [execution/writing-implementation-plans.md](execution/writing-implementation-plans.md) |
-| Running the review phase                        | [execution/review-phase.md](execution/review-phase.md)                                 |
+| Running the review                              | [execution/review.md](execution/review.md)                                             |
 | Initializing an execution directory             | [execution/scripts/init-wo-execution.sh](execution/scripts/init-wo-execution.sh)       |
 | Updating execution context                      | [execution/scripts/update-context-index.sh](execution/scripts/update-context-index.sh) |
-| Writing or revising requirements                | [guides/requirements-writing-guide.md](guides/requirements-writing-guide.md)           |
-| Writing or revising blueprints                  | [guides/blueprint-writing-guide.md](guides/blueprint-writing-guide.md)                 |
-| Creating or updating Work Orders                | [guides/work-order-writing-guide.md](guides/work-order-writing-guide.md)               |
+| Creating or changing a Software Factory record  | Project skills, through the Software Factory MCP                                       |
 
 ## Work Order Execution
 
-**Work Order executions must follow the execution process every time. Every checklist item must be checked complete with `[x]` or explicitly marked `[SKIP]` with a skip reason. Do not treat an unchecked item as implied, optional, or complete.**
+**Follow the execution process for every Work Order. Finish every checklist item in one of two states: checked complete with `[x]`, or marked `[SKIP]` with a skip reason. An unchecked item is an execution failure.**
 
-Follow [execution/execute-work-order.md](execution/execute-work-order.md) for single Work Orders and multi-Work-Order queues. Read the related files in `execution/` when that guide routes to them.
+Follow [execution/execute-work-order.md](execution/execute-work-order.md) for single Work Orders and multi-Work-Order queues, and read the related files in `execution/` when that guide routes to them. The execution files record how the work was done; the Software Factory MCP writing rules govern the records themselves.
 
-The checklist is intentionally a living harness-engineering artifact. Teams should evolve it with the exact commands, checks, screenshots, migrations, fixtures, seed data, CI gates, and review rituals that make agentic programming reliable in their codebase.
+The checklist is a living harness-engineering artifact. Teams evolve it with the exact commands, checks, screenshots, migrations, fixtures, seed data, CI gates, and review rituals that make agentic programming reliable in their codebase.
 
-Version-control handoff is user-directed. Do not assume when to commit, push, open a PR, or merge unless the user or repository workflow specifies it.
-
-## Public Docs
-
-- Requirements Writing Guide: https://8090.ai/docs/opinions/requirements-writing-guide
-- Blueprint Writing Guide: https://8090.ai/docs/opinions/blueprint-writing-guide
-- Work Orders: https://8090.ai/docs/modules/work-orders
+Commit, push, open a pull request, or merge only when the user or the repository workflow asks for it.
